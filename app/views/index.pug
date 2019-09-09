@@ -1,0 +1,27 @@
+extends layout
+
+block append head
+  script(src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js")
+
+block content
+  div(class='chart-container')
+    canvas(id='chart')
+    div(id='currencyPairs')
+      span(id='cpContent')
+        p
+          -
+          each entry in pairs
+            each pair in entry
+              input(type='radio', name='currencyPairs', id=pair, value=pair, onclick='updateChart(data)')
+              label= pair
+              | &nbsp;&nbsp;&#32;&#32;&#32;&#32;&nbsp;&nbsp;
+
+      div(style='float: left')
+        p
+          a(href='https://github.com/ibeauser/cryptoBoto', target='_blank') cryptoBoto on GitHub
+
+      div(style='float: right')
+        p Price data courtesy of the <strong>
+          a(href="https://www.quadrigacx.com/api_info", target='_blank') QuadrigaCX API.</strong>
+
+  script(src="/javascripts/indexData.js")

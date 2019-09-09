@@ -1,0 +1,30 @@
+version: "3"
+services:
+  app:
+    build: .
+    ports:
+      - 4000:4000
+    environment:
+      PGHOST: db
+      PGPORT: 5432
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: cryptoboto
+    depends_on:
+      - db
+    command: > 
+      sh -c "npm install && npm start"
+    # command: ["./wait-for-progress.sh", "npm install && npm start"]
+    volumes:
+      - ./app:/app
+  db:
+    image: postgres:10.6
+    # restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: cryptoboto
+    volumes:
+      # Persist the data between container invocations
+      - ./db/pg_dump:/pg_dump
+      - ./db/docker-entrypoint-initdb.d/01_init-cryptoboto-db.sh:/docker-entrypoint-initdb.d/01_init-cryptoboto-db.sh

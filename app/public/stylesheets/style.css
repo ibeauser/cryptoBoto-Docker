@@ -1,0 +1,61 @@
+.chart-container {
+  position: relative;
+  margin: auto;
+  height: 90vh;
+  width: 80vw;
+}
+
+div#currencyPairs {
+  color: #666666;
+  font-family: "'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'";
+  font-size: 12px;
+  font-style: normal;
+  text-align: center;
+  /* height: 100%; */
+}
+
+span#cpContent{
+  display: inline-block;
+}
+
+td.usrinput {
+  border: 4px dotted rgb(30, 255, 0);
+  text-align: left;
+  background-color: #11ffee00;
+  -webkit-animation-name: none;
+  animation-name: none;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+  -webkit-animation-name: none;
+  animation-name: none;
+}
+td.calcinput {
+  border: 4px dotted rgb(28, 30, 129);
+  text-align: center;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes fail {
+  0%    {background-color: #11ffee00;}
+  50%   {background-color: rgba(255, 0, 0, 0.3);}
+  100%  {background-color: #11ffee00;}
+}
+@-webkit-keyframes pass {
+  0%    {background-color: #11ffee00;}
+  50%   {background-color: rgba(0, 255, 0, 0.3);}
+  100%  {background-color: #11ffee00;}
+}
+
+/* Standard syntax */
+@keyframes fail {
+  0%    {background-color: #11ffee00;}
+  50%   {background-color: rgba(255, 0, 0, 0.3);}
+  100%  {background-color: #11ffee00;}
+}
+@keyframes pass {
+  0%    {background-color: #11ffee00;}
+  50%   {background-color: rgba(0, 255, 0, 0.3);}
+  100%  {background-color: #11ffee00;}
+}
